@@ -1,0 +1,91 @@
+@model IEnumerable<Business.Models.Employee>
+@{
+    ViewBag.Title = "Empleados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    .search-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+        max-width: 700px;
+        margin: 40px auto 20px;
+    }
+
+        .search-container h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #343a40;
+        }
+
+    .form-control {
+        display: inline-block;
+        width: 250px;
+        margin-right: 10px;
+    }
+
+    .table-container {
+        max-width: 1000px;
+        margin: 20px auto;
+    }
+
+    table th {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: black;
+    }
+
+    .alert {
+        max-width: 600px;
+        margin: 20px auto;
+    }
+</style>
+
+<div class="search-container text-center">
+    <h2>Buscar Empleado</h2>
+    <form method="get" action="@Url.Action("Index", "Employee")" class="form-inline d-flex justify-content-center">
+        <input type="number" name="id" class="form-control" placeholder="ID del empleado (opcional)" />
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+</div>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-warning text-center">@ViewBag.Message</div>
+}
+
+@if (Model != null && Model.Any())
+{
+    <div class="table-container">
+        <table class="table table-bordered table-hover text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Salario</th>
+                    <th>Salario Anual</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var emp in Model)
+                {
+                    <tr>
+                        <td>@emp.id</td>
+                        <td>@emp.employee_name</td>
+                        <td>@String.Format("{0:C0}", emp.employee_salary)</td>
+                        <td>@String.Format("{0:C0}", emp.employee_annual_salary)</td>
+                        <td>@emp.employee_age</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
