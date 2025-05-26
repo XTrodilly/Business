@@ -50,12 +50,12 @@ https://68328e47c3f2222a8cb2aa04.mockapi.io/Employees
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/nombre-del-repo.git
+git clone https://github.com/XTrodilly/Business.git
 ```
 
 2. Abrir el archivo `.sln` con Visual Studio.
 
-3. Restaurar los paquetes NuGet.
+3. Restaurar los paquetes NuGet. 
 
 4. Compilar la solución.
 
@@ -65,7 +65,7 @@ git clone https://github.com/tu-usuario/nombre-del-repo.git
 
 - Si el ID ingresado es válido, se muestra solo el empleado correspondiente.
 - Si no se ingresa ID, se muestra el listado completo.
-- Si el ID no existe, se muestra un mensaje informativo.
+- Si el ID no existe, se muestra un mensaje informativo. 
 - Se incluyó un test unitario que valida el cálculo de salario anual.
 
 ---
